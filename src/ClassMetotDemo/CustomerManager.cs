@@ -5,11 +5,18 @@ using System.Threading.Tasks;
 
 namespace ClassMetotDemo
 {
-    public class Program
+    public class CustomerManager
     {
-        public static void Main(string[] args)
+        public void Add(Customer  cust)
         {
-            // New Customers
+            Console.WriteLine("{0}" + cust.Name + " Kisisi Eklendi.{0}", Environment.NewLine);
+        }
+        public void Dell(Customer cust)
+        {
+            Console.WriteLine("{0}" + cust.Name + " Kisisi Silindi.", Environment.NewLine);
+        }
+        public void List()
+        {
             Customer customer1 = new Customer();
             customer1.Id = 348265;
             customer1.Name = "Mert";
@@ -25,25 +32,15 @@ namespace ClassMetotDemo
             customer3.Name = "Umut";
             customer3.Nickname = "trakS";
 
-            // An Array For Customer's List
-            Customer[] customers = new Customer[] 
+            Customer[] customers = new Customer[]
             {
                 customer1, customer2, customer3
             };
 
-            // Bank Name
-            Console.WriteLine("xxx Bankasi{0}------------", Environment.NewLine);
-
-            // Add Place
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.Add(customer1);
-
-            // List Place
-            customerManager.List();
-
-            // Dell Place
-            customerManager.Dell(customer2);
-            Console.ReadKey();
+            foreach (var i in customers)
+            {
+                Console.WriteLine(i.Id + " " + i.Name + " " + i.Nickname);
+            }
         }
     }
 }
